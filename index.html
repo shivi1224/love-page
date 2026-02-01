@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentines Day</title>
+    <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #F075AE;
+    }
+
+    .box {
+      width: 700px;
+      height: 600px;
+      background-color: rgb(255, 255, 255);
+      border-radius: 20px;
+      border: 1px solid #000000;
+      box-shadow: 12px 12px 25px rgba(0, 0, 0, 0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 50px;
+      flex-direction: column;
+    }
+
+    .gif {
+      /*max-width: 100%;
+      max-height: 100%; */
+      height: auto;
+      width: 300px;
+      border-radius: 12px; /* optional */
+      margin-bottom: 50px;
+      margin-top:-70px;
+    }
+    .buttons{
+        display: flex;
+        gap: 20px;
+    }
+
+    button{
+        padding: 12px 30px;
+        font-size: 18px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+    .yes{
+        background-color: #eca5c6;
+        color: #000000;
+        border: 3px solid #c0206a;
+    }
+    .no{
+        background-color: #dad8d8;
+        color: #000000;
+        border: 3px solid #a09e9e;
+    }
+    button:hover{
+        opacity: 0.85;
+    }
+    h1{
+        margin-bottom: 100px;
+        align-items: center;
+    }
+  </style>
+</head>
+<body>
+    <div class="box">
+        <h1>Will You Be My Valentine?????</h1>
+        <img src="aw-its-so-cute.gif" alt="Aw its so cute gif" class="gif">
+        <div class="buttons">
+            <button class="yes" onclick="location.href='love.html'">Yes</button>
+            <button class="no" id="noBtn">No</button>
+        </div>
+    </div>
+    
+        <script>
+        const noBtn = document.getElementById('noBtn');
+        const box = document.querySelector('.box');
+
+        noBtn.addEventListener('mouseenter', () => {
+        // Get box dimensions
+        const boxRect = box.getBoundingClientRect();
+        const btnRect = noBtn.getBoundingClientRect();
+
+        // Calculate max possible position inside box
+        const maxX = box.clientWidth - btnRect.width - 20; // 20px padding
+        const maxY = box.clientHeight - btnRect.height - 20;
+
+        // Random new position
+        const newX = Math.floor(Math.random() * maxX);
+        const newY = Math.floor(Math.random() * maxY);
+
+        // Move the button
+        noBtn.style.position = 'absolute';
+        noBtn.style.left = newX + 'px';
+        noBtn.style.top = newY + 'px';
+        });
+    </script>
+
+    <!-- <script type="text/javascript" async src="https://tenor.com/embed.js"></script> -->
+</body>
+</html>
